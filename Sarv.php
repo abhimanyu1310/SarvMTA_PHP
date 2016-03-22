@@ -2,6 +2,7 @@
 require_once 'Sarv/Messages.php';
 require_once 'Sarv/Settings.php';
 require_once 'Sarv/Accounts.php';
+require_once 'Sarv/Exceptions.php';
 
 class Sarv {
     
@@ -13,34 +14,7 @@ class Sarv {
 
     public static $error_map = array(
         "ValidationError" => "Sarv_ValidationError",
-        "Invalid_Key" => "Sarv_Invalid_Key",
-        "PaymentRequired" => "Sarv_PaymentRequired",
-        "Unknown_Subaccount" => "Sarv_Unknown_Subaccount",
-        "Unknown_Template" => "Sarv_Unknown_Template",
-        "ServiceUnavailable" => "Sarv_ServiceUnavailable",
-        "Unknown_Message" => "Sarv_Unknown_Message",
-        "Invalid_Tag_Name" => "Sarv_Invalid_Tag_Name",
-        "Invalid_Reject" => "Sarv_Invalid_Reject",
-        "Unknown_Sender" => "Sarv_Unknown_Sender",
-        "Unknown_Url" => "Sarv_Unknown_Url",
-        "Unknown_TrackingDomain" => "Sarv_Unknown_TrackingDomain",
-        "Invalid_Template" => "Sarv_Invalid_Template",
-        "Unknown_Webhook" => "Sarv_Unknown_Webhook",
-        "Unknown_InboundDomain" => "Sarv_Unknown_InboundDomain",
-        "Unknown_InboundRoute" => "Sarv_Unknown_InboundRoute",
-        "Unknown_Export" => "Sarv_Unknown_Export",
-        "IP_ProvisionLimit" => "Sarv_IP_ProvisionLimit",
-        "Unknown_Pool" => "Sarv_Unknown_Pool",
-        "NoSendingHistory" => "Sarv_NoSendingHistory",
-        "PoorReputation" => "Sarv_PoorReputation",
-        "Unknown_IP" => "Sarv_Unknown_IP",
-        "Invalid_EmptyDefaultPool" => "Sarv_Invalid_EmptyDefaultPool",
-        "Invalid_DeleteDefaultPool" => "Sarv_Invalid_DeleteDefaultPool",
-        "Invalid_DeleteNonEmptyPool" => "Sarv_Invalid_DeleteNonEmptyPool",
-        "Invalid_CustomDNS" => "Sarv_Invalid_CustomDNS",
-        "Invalid_CustomDNSPending" => "Sarv_Invalid_CustomDNSPending",
-        "Metadata_FieldLimit" => "Sarv_Metadata_FieldLimit",
-        "Unknown_MetadataField" => "Sarv_Unknown_MetadataField"
+        "Invalid_Key" => "Sarv_Invalid_Key"
     );
 
     public function __construct($owner_id=null,$apikey=null) {
