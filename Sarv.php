@@ -9,7 +9,7 @@ class Sarv {
     public $apikey;
     public $owner_id;
     public $ch;
-    public $root = 'http://master.us.sarv.email:7278/';
+    public $root = 'http://master.us.sarv.email:7279/v1.0/';
     public $debug = false;
 
     public static $error_map = array(
