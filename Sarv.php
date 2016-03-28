@@ -5,11 +5,10 @@ require_once 'Sarv/Accounts.php';
 require_once 'Sarv/Exceptions.php';
 
 class Sarv {
-    
+
     public $apikey;
     public $owner_id;
     public $ch;
-    public $root = 'http://master.us.sarv.email:7279/v1.0/';
     public $debug = false;
 
     public static $error_map = array(
@@ -17,9 +16,10 @@ class Sarv {
         "Invalid_Key" => "Sarv_Invalid_Key"
     );
 
-    public function __construct($owner_id=null,$apikey=null) {
+    public function __construct($owner_id=null,$apikey=null,$SarvTES_APP_DOMAIN=null) {
         if(!$apikey) throw new Sarv_Error('You must provide a Sarv Token');
         if(!$owner_id) throw new Sarv_Error('You must provide a Sarv Owner id');
+        if(!$SarvTES_APP_DOMAIN) throw  new Sarv_Error('You must provide a Sarv TES DOMAIN');
         $this->apikey = $apikey;
         $this->owner_id = $owner_id;
 
@@ -32,7 +32,7 @@ class Sarv {
         curl_setopt($this->ch, CURLOPT_CONNECTTIMEOUT, 30);
         curl_setopt($this->ch, CURLOPT_TIMEOUT, 600);
 
-        $this->root = rtrim($this->root, '/') . '/';
+        $this->root = "http://$SarvTES_APP_DOMAIN:7279/v1.0/";
         $this->messages = new Sarv_Messages($this);
         $this->settings = new Sarv_Settings($this);
         $this->accounts = new Sarv_Accounts($this);
@@ -76,7 +76,7 @@ class Sarv {
         }
         $result = json_decode($response_body, true);
         if($result === null) throw new Sarv_Error('We were unable to decode the JSON response from the Sarv API: ' . $response_body);
-        
+
         if(floor($info['http_code'] / 100) >= 4) {
             throw $this->castError($result);
         }
