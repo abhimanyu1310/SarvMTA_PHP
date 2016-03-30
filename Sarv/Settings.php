@@ -215,4 +215,14 @@ class Sarv_Settings {
         return $this->master->call('settings/listWebhook', $_params);
     }
     
+    public function getWebhookInfo($webhook_id = null) {
+        $_params = array();
+        
+        if(isset($webhook_id)){
+           $_params['webhook_id'] =  $webhook_id;
+        }
+        
+        return $this->master->call('settings/getWebhookInfo', $_params);
+    }
+    
 }
