@@ -30,6 +30,15 @@ class Sarv_Messages {
 		
         return $this->master->call('messages/sendRaw', $_params);
     }
+    
+    public function getMessageInfo($x_unique_id = null) {
+	$_params = array();
+	if(isset($x_unique_id)){
+           $_params['x_unique_id'] =  $x_unique_id;
+        }
+		
+        return $this->master->call('messages/getMessageInfo', $_params);
+    }
 
 }
 
