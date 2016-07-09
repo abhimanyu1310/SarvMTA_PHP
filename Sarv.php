@@ -29,7 +29,7 @@ class Sarv {
         curl_setopt($this->ch, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt($this->ch, CURLOPT_HEADER, false);
         curl_setopt($this->ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($this->ch, CURLOPT_CONNECTTIMEOUT, 30);
+        curl_setopt($this->ch, CURLOPT_CONNECTTIMEOUT, 60);
         curl_setopt($this->ch, CURLOPT_TIMEOUT, 600);
 
         $this->root = "http://$SarvTES_APP_DOMAIN:7278/v1.0/";
