@@ -32,7 +32,7 @@ class Sarv {
         curl_setopt($this->ch, CURLOPT_CONNECTTIMEOUT, 60);
         curl_setopt($this->ch, CURLOPT_TIMEOUT, 600);
 
-        $this->root = "http://$SarvTES_APP_DOMAIN:7278/v1.0/";
+        $this->root = "http://api.$SarvTES_APP_DOMAIN/v1.0/";
         $this->messages = new Sarv_Messages($this);
         $this->settings = new Sarv_Settings($this);
         $this->accounts = new Sarv_Accounts($this);
