@@ -16,8 +16,20 @@ class Sarv_Messages {
            $_params['message'] =  $message;
         }
         return $this->master->call('messages/sendMail', $_params);
+    }   
+
+    public function sendTemplate($smtp_user_name = null, $message = null) {
+        $_params = array();
+
+        if (isset($smtp_user_name)) {
+            $_params['smtp_user_name'] = $smtp_user_name;
+        }
+
+        if (isset($message)) {
+            $_params['message'] = $message;
+        }
+        return $this->master->call('messages/sendTemplate', $_params);
     }
-   
     public function sendRaw($smtp_user_name = null, $raw_message = null) {
 		$_params = array();
 		if(isset($smtp_user_name)){
